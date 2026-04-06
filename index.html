@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toko Tambah Jaya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <!-- Flexbox dipakai pada navbar -->
+      <nav class="navbar container">
+        <h1 class="logo">Toko Tambah Jaya</h1>
+        <ul class="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+        </ul>
+      </nav>
+
+      <section class="hero-content container">
+        <p class="label">Toko Sport & Musik </p>
+        <h2>Menyediakan Segala Kebutuhan Hobi Anda</h2>
+        <p>Mulai dari peralatan olahraga, perlengkapan pancing, hingga barang antik</p>
+      </section>
+    </header>
+
+    <main class="main">
+
+      <!-- Grid Layout dengan Box Model pada kategori layanan -->
+      <section id="layanan" class="fitur container">
+        <h3>Layanan Kami</h3>
+        <div class="layanan-container">
+          <div class="layanan-kategori">
+            <h4>Pemasangan & Setup</h4>
+            <ul class="layanan-list">
+              <li>Pemasangan Senar Raket</li>
+              <li>Pemasangan Senar Gitar</li>
+              <li>Tuning & Setup Instrumen</li>
+              <li>Pemasangan Aksesori</li>
+            </ul>
+          </div>
+          <div class="layanan-kategori">
+            <h4>Klaim & Reparasi</h4>
+            <ul class="layanan-list">
+              <li>Klaim Raket Patah</li>
+              <li>Reparasi Alat Musik</li>
+              <li>Perbaikan Peralatan Olahraga</li>
+              <li>Garansi Service</li>
+            </ul>
+          </div>
+          <div class="layanan-kategori">
+            <h4>Pemesanan & Informasi</h4>
+            <ul class="layanan-list">
+              <li>Pemesanan Piala Custom</li>
+              <li>Informasi Jumlah Barang</li>
+              <li>Pre-Order Produk</li>
+              <li>Konsultasi Ketersediaan</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Flexbox juga dipakai pada produk-list -->
+      <section id="produk" class="produk container">
+        <h3>Daftar Produk Kami</h3>
+        <div class="kategori-produk">
+          <div class="kategori">
+            <h4>Peralatan Pancing</h4>
+            <ul class="item-list">
+              <li>Pelampung Kualitas Tinggi</li>
+              <li>Kail Pancing Berbagai Ukuran</li>
+              <li>Benang Pancing Ultra Kuat</li>
+              <li>Joran Pancing Profesional</li>
+              <li>Tas & Perlengkapan Pancing</li>
+            </ul>
+          </div>
+          <div class="kategori">
+            <h4>Alat Olahraga</h4>
+            <ul class="item-list">
+              <li>Raket Badminton</li>
+              <li>Raket Tenis</li>
+              <li>Bola Volley & Sepak Bola</li>
+              <li>Perlengkapan Outdoor</li>
+              <li>Tas Olahraga Premium</li>
+            </ul>
+          </div>
+          <div class="kategori">
+            <h4>Alat Musik</h4>
+            <ul class="item-list">
+              <li>Gitar Akustik & Elektrik</li>
+              <li>Keyboard & Synthesizer</li>
+              <li>Drum & Perkusi</li>
+              <li>Aksesori Musik Lengkap</li>
+              <li>Kabel & Efek Audio</li>
+            </ul>
+          </div>
+          <div class="kategori">
+            <h4>Barang Antik</h4>
+            <ul class="item-list">
+              <li>Sepeda Unta Antik</li>
+              <li>Jam Dinding Klasik</li>
+              <li>Patung & Dekorasi Kuno</li>
+              <li>Perabotan Antik Langka</li>
+              <li>Koleksi Nostalgia</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid Layout dipakai pada .galeri-grid -->
+      <section id="galeri" class="galeri container">
+        <h3>Galeri Toko</h3>
+        <div class="galeri-grid">
+          <div class="kotak">Etalase Utama</div>
+          <div class="kotak">Area Kasir</div>
+          <div class="kotak">Area Musik</div>
+          <div class="kotak">Area Pancing</div>
+          <div class="kotak">Area Olahraga</div>
+          <div class="kotak">Koleksi Antik</div>
+          <div class="kotak">Sudut Layanan</div>
+        </div>
+      </section>
+
+      <!-- Tentang Kami Section -->
+      <section id="tentang" class="tentang container">
+        <h3>Tentang Kami</h3>
+        <div class="tentang-content">
+          <p>Toko Tambah Jaya adalah toko yang menyediakan berbagai kebutuhan hobi Anda. Dengan pengalaman lebih dari 25 tahun melayani pelanggan, kami berkomitmen memberikan produk berkualitas dan layanan terbaik.</p>
+          <p>Kami menyediakan peralatan olahraga, perlengkapan pancing, instrumen musik, dan barang antik pilihan dengan harga yang kompetitif.</p>
+        </div>
+      </section>
+
+      <!-- Kontak Section -->
+      <section id="kontak" class="kontak container">
+        <h3>Hubungi Kami</h3>
+        <div class="kontak-content">
+          <div class="kontak-info">
+            <h4>Informasi Kontak</h4>
+            <p><strong>Alamat:</strong> Lasem, Rembang</p>
+            <p><strong>Telepon:</strong> (+62) XXX-XXX-XXXX</p>
+            <p><strong>Email:</strong> info@tokotambahajaya.com</p>
+            <p><strong>Jam Operasional:</strong> Senin - Minggu, 07:00 - 22:00</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Toko Tambah Jaya, Lasem, Rembang</p>
+    </footer>
+  </body>
+</html>
