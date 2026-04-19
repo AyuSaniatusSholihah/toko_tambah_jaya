@@ -21,6 +21,7 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
+  padding-top: 84px;
 }
 
 .container {
@@ -41,8 +42,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem clamp(1rem, 4vw, 2.5rem);
   gap: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+  background: rgba(10, 10, 15, 0.72);
+  border-bottom: 1px solid var(--line);
 }
 
 .logo {
@@ -63,10 +73,15 @@ body {
   color: var(--text);
   text-decoration: none;
   font-weight: 500;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.menu a:hover {
+.menu a:hover,
+.menu a.active {
   color: var(--accent);
+  border-color: var(--accent);
 }
 
 .hero-content {
@@ -92,14 +107,83 @@ body {
   color: var(--muted);
 }
 
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.btn {
+  font-family: inherit;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #1c1a10;
+}
+
+.btn-secondary {
+  border-color: var(--accent2);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: rgba(74, 158, 232, 0.12);
+}
+
 .fitur {
   margin-top: 2.2rem;
+}
+
+main section {
+  scroll-margin-top: 7rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+main section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .fitur h3 {
   font-family: "Playfair Display", serif;
   color: var(--accent);
+  margin: 0;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 1rem;
+}
+
+.section-head h3 {
+  margin: 0;
+}
+
+.btn-toggle {
+  font-size: 0.92rem;
+}
+
+.btn-toggle.is-active {
+  background: rgba(74, 158, 232, 0.16);
 }
 
 .layanan-container {
@@ -154,6 +238,19 @@ body {
   margin-top: 2.2rem;
 }
 
+.produk-actions,
+.galeri-actions,
+.kontak-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.btn-filter.is-active {
+  background: rgba(74, 158, 232, 0.18);
+  border-color: var(--accent2);
+}
+
 .produk-list {
   /* Flexbox: daftar produk sejajar lalu wrap saat ruang sempit */
   display: flex;
@@ -173,6 +270,8 @@ body {
   border: 2px solid var(--accent);
   border-radius: 10px;
   padding: 1.2rem;
+  transition: opacity 0.2s ease;
+  will-change: opacity, transform;
 }
 
 .kategori h4 {
@@ -223,6 +322,7 @@ body {
   place-items: center;
   font-weight: 700;
   color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .tentang {
@@ -269,6 +369,13 @@ body {
   padding-left: 1rem;
 }
 
+.kontak-status {
+  margin: 0.9rem 0 0;
+  padding-left: 0;
+  color: #c9d8ff;
+  min-height: 1.2rem;
+}
+
 .footer {
   margin-top: 2.5rem;
   text-align: center;
@@ -280,13 +387,24 @@ body {
 
 @media (max-width: 700px) {
   /* Responsive: di layar kecil, layout dibuat lebih vertikal */
+  body {
+    padding-top: 112px;
+  }
+
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    padding: 0.75rem 1rem;
   }
 
   .layanan-container {
     grid-template-columns: 1fr;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .kategori-produk {

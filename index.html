@@ -13,13 +13,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="hero">
+    <header id="home" class="hero">
       <!-- Flexbox dipakai pada navbar -->
       <nav class="navbar container">
         <h1 class="logo">Toko Tambah Jaya</h1>
         <ul class="menu">
           <li><a href="#home">Home</a></li>
           <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#produk">Produk</a></li>
           <li><a href="#tentang">Tentang</a></li>
           <li><a href="#kontak">Kontak</a></li>
           <li><a href="#galeri">Galeri</a></li>
@@ -30,6 +31,10 @@
         <p class="label">Toko Sport & Musik </p>
         <h2>Menyediakan Segala Kebutuhan Hobi Anda</h2>
         <p>Mulai dari peralatan olahraga, perlengkapan pancing, hingga barang antik</p>
+        <div class="cta-group">
+          <a class="btn btn-primary" href="#produk">Lihat Produk</a>
+          <a class="btn btn-secondary" href="#kontak">Hubungi Kami</a>
+        </div>
       </section>
     </header>
 
@@ -37,8 +42,19 @@
 
       <!-- Grid Layout dengan Box Model pada kategori layanan -->
       <section id="layanan" class="fitur container">
-        <h3>Layanan Kami</h3>
-        <div class="layanan-container">
+        <div class="section-head">
+          <h3>Layanan Kami</h3>
+          <button
+            id="toggle-layanan"
+            class="btn btn-secondary btn-toggle"
+            type="button"
+            aria-controls="layanan-list"
+            aria-expanded="true"
+          >
+            Sembunyikan Layanan
+          </button>
+        </div>
+        <div id="layanan-list" class="layanan-container">
           <div class="layanan-kategori">
             <h4>Pemasangan & Setup</h4>
             <ul class="layanan-list">
@@ -71,9 +87,18 @@
 
       <!-- Flexbox juga dipakai pada produk-list -->
       <section id="produk" class="produk container">
-        <h3>Daftar Produk Kami</h3>
-        <div class="kategori-produk">
-          <div class="kategori">
+        <div class="section-head">
+          <h3>Daftar Produk Kami</h3>
+          <div class="produk-actions">
+            <button class="btn btn-secondary btn-filter is-active" type="button" data-filter="all">Semua</button>
+            <button class="btn btn-secondary btn-filter" type="button" data-filter="pancing">Pancing</button>
+            <button class="btn btn-secondary btn-filter" type="button" data-filter="olahraga">Olahraga</button>
+            <button class="btn btn-secondary btn-filter" type="button" data-filter="musik">Musik</button>
+            <button class="btn btn-secondary btn-filter" type="button" data-filter="antik">Antik</button>
+          </div>
+        </div>
+        <div class="kategori-produk" id="produk-list">
+          <div class="kategori" data-category="pancing">
             <h4>Peralatan Pancing</h4>
             <ul class="item-list">
               <li>Pelampung Kualitas Tinggi</li>
@@ -83,7 +108,7 @@
               <li>Tas & Perlengkapan Pancing</li>
             </ul>
           </div>
-          <div class="kategori">
+          <div class="kategori" data-category="olahraga">
             <h4>Alat Olahraga</h4>
             <ul class="item-list">
               <li>Raket Badminton</li>
@@ -93,7 +118,7 @@
               <li>Tas Olahraga Premium</li>
             </ul>
           </div>
-          <div class="kategori">
+          <div class="kategori" data-category="musik">
             <h4>Alat Musik</h4>
             <ul class="item-list">
               <li>Gitar Akustik & Elektrik</li>
@@ -103,7 +128,7 @@
               <li>Kabel & Efek Audio</li>
             </ul>
           </div>
-          <div class="kategori">
+          <div class="kategori" data-category="antik">
             <h4>Barang Antik</h4>
             <ul class="item-list">
               <li>Sepeda Unta Antik</li>
@@ -118,8 +143,14 @@
 
       <!-- Grid Layout dipakai pada .galeri-grid -->
       <section id="galeri" class="galeri container">
-        <h3>Galeri Toko</h3>
-        <div class="galeri-grid">
+        <div class="section-head">
+          <h3>Galeri Toko</h3>
+          <div class="galeri-actions">
+            <button id="toggle-galeri" class="btn btn-secondary" type="button" aria-controls="galeri-list" aria-expanded="true">Sembunyikan Galeri</button>
+            <button id="urutkan-galeri" class="btn btn-secondary" type="button" data-sorted="false">Urutkan A-Z</button>
+          </div>
+        </div>
+        <div id="galeri-list" class="galeri-grid">
           <div class="kotak">Etalase Utama</div>
           <div class="kotak">Area Kasir</div>
           <div class="kotak">Area Musik</div>
@@ -149,6 +180,11 @@
             <p><strong>Telepon:</strong> (+62) XXX-XXX-XXXX</p>
             <p><strong>Email:</strong> info@tokotambahajaya.com</p>
             <p><strong>Jam Operasional:</strong> Senin - Minggu, 07:00 - 22:00</p>
+            <div class="kontak-actions">
+              <button id="copy-email" class="btn btn-secondary" type="button">Salin Email</button>
+              <button id="copy-phone" class="btn btn-secondary" type="button">Salin Telepon</button>
+            </div>
+            <p id="kontak-status" class="kontak-status" aria-live="polite"></p>
           </div>
         </div>
       </section>
@@ -157,5 +193,196 @@
     <footer class="footer">
       <p>Toko Tambah Jaya, Lasem, Rembang</p>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      if (typeof window.jQuery !== "undefined") {
+        $(function () {
+          var $links = $(".menu a, .btn[href^='#']");
+          var $layananToggle = $("#toggle-layanan");
+          var $layananList = $("#layanan-list");
+          var $filterButtons = $(".btn-filter");
+          var $produkCards = $("#produk-list .kategori");
+          var $toggleGaleri = $("#toggle-galeri");
+          var $galeriList = $("#galeri-list");
+          var $galeriItems = $("#galeri-list .kotak");
+          var $sortGaleri = $("#urutkan-galeri");
+          var $copyEmail = $("#copy-email");
+          var $copyPhone = $("#copy-phone");
+          var $kontakStatus = $("#kontak-status");
+
+          $galeriItems.each(function (index) {
+            $(this).attr("data-original-index", index);
+          });
+
+          $links.on("click", function (event) {
+            var targetId = $(this).attr("href");
+            if (!targetId || targetId.charAt(0) !== "#") return;
+
+            var $target = $(targetId);
+            if (!$target.length) return;
+
+            event.preventDefault();
+
+            var navHeight = $(".navbar").outerHeight() || 0;
+            var destination = $target.offset().top - navHeight - 12;
+
+            $("html, body").animate(
+              {
+                scrollTop: Math.max(destination, 0),
+              },
+              500
+            );
+
+            $(".menu a").removeClass("active");
+            $('.menu a[href="' + targetId + '"]').addClass("active");
+          });
+
+          $layananToggle.on("click", function () {
+            var isVisible = $layananList.is(":visible");
+
+            $layananList.stop(true, true).slideToggle(280);
+            $(this)
+              .attr("aria-expanded", String(!isVisible))
+              .text(isVisible ? "Tampilkan Layanan" : "Sembunyikan Layanan")
+              .toggleClass("is-active", !isVisible);
+          });
+
+          function showCard($card) {
+            if ($card.is(":visible")) return;
+
+            $card
+              .stop(true, true)
+              .css("opacity", 0)
+              .slideDown(240)
+              .animate(
+                {
+                  opacity: 1
+                },
+                220
+              );
+          }
+
+          function hideCard($card) {
+            if (!$card.is(":visible")) return;
+
+            $card
+              .stop(true, true)
+              .animate(
+                {
+                  opacity: 0
+                },
+                170,
+                function () {
+                  $(this).slideUp(210);
+                }
+              );
+          }
+
+          $filterButtons.on("click", function () {
+            var filter = $(this).data("filter");
+
+            $filterButtons.removeClass("is-active");
+            $(this).addClass("is-active");
+
+            if (filter === "all") {
+              $produkCards.each(function () {
+                showCard($(this));
+              });
+              return;
+            }
+
+            $produkCards.each(function () {
+              var $card = $(this);
+              var category = $card.data("category");
+              if (category === filter) {
+                showCard($card);
+              } else {
+                hideCard($card);
+              }
+            });
+          });
+
+          $toggleGaleri.on("click", function () {
+            var isVisible = $galeriList.is(":visible");
+            $galeriList.stop(true, true).slideToggle(250);
+            $(this)
+              .attr("aria-expanded", String(!isVisible))
+              .text(isVisible ? "Tampilkan Galeri" : "Sembunyikan Galeri");
+          });
+
+          $sortGaleri.on("click", function () {
+            if (!$galeriItems.length) return;
+
+            var isSorted = $(this).attr("data-sorted") === "true";
+            var $items = $galeriList.children(".kotak").get();
+
+            $items.sort(function (a, b) {
+              var aText = $(a).text().trim();
+              var bText = $(b).text().trim();
+
+              if (isSorted) {
+                return Number($(a).attr("data-original-index")) - Number($(b).attr("data-original-index"));
+              }
+
+              return aText.localeCompare(bText, "id");
+            });
+
+            $.each($items, function (_, item) {
+              $galeriList.append(item);
+            });
+
+            $(this)
+              .attr("data-sorted", String(!isSorted))
+              .text(isSorted ? "Urutkan A-Z" : "Kembalikan Urutan");
+          });
+
+          function copyText(text, label) {
+            if (navigator.clipboard && window.isSecureContext) {
+              navigator.clipboard.writeText(text).then(function () {
+                $kontakStatus.text(label + " berhasil disalin.");
+              }).catch(function () {
+                $kontakStatus.text("Gagal menyalin " + label.toLowerCase() + ".");
+              });
+              return;
+            }
+
+            var $tempInput = $("<input>");
+            $("body").append($tempInput);
+            $tempInput.val(text).trigger("select");
+
+            try {
+              document.execCommand("copy");
+              $kontakStatus.text(label + " berhasil disalin.");
+            } catch (error) {
+              $kontakStatus.text("Gagal menyalin " + label.toLowerCase() + ".");
+            }
+
+            $tempInput.remove();
+          }
+
+          $copyEmail.on("click", function () {
+            copyText("info@tokotambahajaya.com", "Email");
+          });
+
+          $copyPhone.on("click", function () {
+            copyText("(+62) XXX-XXX-XXXX", "Telepon");
+          });
+
+          function revealOnScroll() {
+            var triggerBottom = $(window).scrollTop() + $(window).height() * 0.9;
+            $("main section").each(function () {
+              var $section = $(this);
+              if ($section.offset().top < triggerBottom) {
+                $section.addClass("is-visible");
+              }
+            });
+          }
+
+          $(window).on("scroll", revealOnScroll);
+          revealOnScroll();
+        });
+      }
+    </script>
   </body>
 </html>
