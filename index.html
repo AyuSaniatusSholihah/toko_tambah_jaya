@@ -7,191 +7,189 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header id="home" class="hero">
-      <!-- Flexbox dipakai pada navbar -->
       <nav class="navbar container">
-        <h1 class="logo">Toko Tambah Jaya</h1>
-        <ul class="menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#layanan">Layanan</a></li>
-          <li><a href="#produk">Produk</a></li>
-          <li><a href="#tentang">Tentang</a></li>
-          <li><a href="#kontak">Kontak</a></li>
-          <li><a href="#galeri">Galeri</a></li>
-        </ul>
+        <h1 class="logo">PERFORMA</h1>
+        <div class="nav-main">
+          <ul class="menu">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="katalog.html">Katalog</a></li>
+            <li><a href="#layanan">Layanan</a></li>
+            <li><a href="#tentang">Tentang Kami</a></li>
+          </ul>
+        </div>
+        <div class="nav-tools" aria-label="Aksi cepat">
+          <button class="tool-btn" type="button" aria-label="Keranjang">🛒</button>
+          <button class="tool-btn" type="button" aria-label="Akun">👤</button>
+        </div>
       </nav>
 
       <section class="hero-content container">
-        <p class="label">Toko Sport & Musik </p>
-        <h2>Menyediakan Segala Kebutuhan Hobi Anda</h2>
-        <p>Mulai dari peralatan olahraga, perlengkapan pancing, hingga barang antik</p>
+        <p class="label">EDISI TERBATAS 2024</p>
+        <h2>
+          <span>TEMUKAN</span>
+          <span class="highlight">MOMENTUM</span>
+          <span>ANDA.</span>
+        </h2>
+        <p>
+          Kurasi peralatan olahraga dan hobi kelas dunia untuk meningkatkan performa Anda ke level
+          berikutnya. Profesionalisme dalam setiap detail.
+        </p>
         <div class="cta-group">
-          <a class="btn btn-primary" href="#produk">Lihat Produk</a>
-          <a class="btn btn-secondary" href="#kontak">Hubungi Kami</a>
+          <a class="btn btn-primary" href="katalog.html">Lihat Produk</a>
+          <a class="btn btn-secondary" href="#layanan">Konsultasi Ahli</a>
         </div>
       </section>
     </header>
 
     <main class="main">
-
-      <!-- Grid Layout dengan Box Model pada kategori layanan -->
-      <section id="layanan" class="fitur container">
-        <div class="section-head">
-          <h3>Layanan Kami</h3>
-          <button
-            id="toggle-layanan"
-            class="btn btn-secondary btn-toggle"
-            type="button"
-            aria-controls="layanan-list"
-            aria-expanded="true"
-          >
-            Sembunyikan Layanan
-          </button>
-        </div>
-        <div id="layanan-list" class="layanan-container">
-          <div class="layanan-kategori">
-            <h4>Pemasangan & Setup</h4>
-            <ul class="layanan-list">
-              <li>Pemasangan Senar Raket</li>
-              <li>Pemasangan Senar Gitar</li>
-              <li>Tuning & Setup Instrumen</li>
-              <li>Pemasangan Aksesori</li>
-            </ul>
-          </div>
-          <div class="layanan-kategori">
-            <h4>Klaim & Reparasi</h4>
-            <ul class="layanan-list">
-              <li>Klaim Raket Patah</li>
-              <li>Reparasi Alat Musik</li>
-              <li>Perbaikan Peralatan Olahraga</li>
-              <li>Garansi Service</li>
-            </ul>
-          </div>
-          <div class="layanan-kategori">
-            <h4>Pemesanan & Informasi</h4>
-            <ul class="layanan-list">
-              <li>Pemesanan Piala Custom</li>
-              <li>Informasi Jumlah Barang</li>
-              <li>Pre-Order Produk</li>
-              <li>Konsultasi Ketersediaan</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Flexbox juga dipakai pada produk-list -->
-      <section id="produk" class="produk container">
-        <div class="section-head">
-          <h3>Daftar Produk Kami</h3>
-          <div class="produk-actions">
-            <button class="btn btn-secondary btn-filter is-active" type="button" data-filter="all">Semua</button>
-            <button class="btn btn-secondary btn-filter" type="button" data-filter="pancing">Pancing</button>
-            <button class="btn btn-secondary btn-filter" type="button" data-filter="olahraga">Olahraga</button>
-            <button class="btn btn-secondary btn-filter" type="button" data-filter="musik">Musik</button>
-            <button class="btn btn-secondary btn-filter" type="button" data-filter="antik">Antik</button>
-          </div>
-        </div>
-        <div class="kategori-produk" id="produk-list">
-          <div class="kategori" data-category="pancing">
-            <h4>Peralatan Pancing</h4>
-            <ul class="item-list">
-              <li>Pelampung Kualitas Tinggi</li>
-              <li>Kail Pancing Berbagai Ukuran</li>
-              <li>Benang Pancing Ultra Kuat</li>
-              <li>Joran Pancing Profesional</li>
-              <li>Tas & Perlengkapan Pancing</li>
-            </ul>
-          </div>
-          <div class="kategori" data-category="olahraga">
-            <h4>Alat Olahraga</h4>
-            <ul class="item-list">
-              <li>Raket Badminton</li>
-              <li>Raket Tenis</li>
-              <li>Bola Volley & Sepak Bola</li>
-              <li>Perlengkapan Outdoor</li>
-              <li>Tas Olahraga Premium</li>
-            </ul>
-          </div>
-          <div class="kategori" data-category="musik">
-            <h4>Alat Musik</h4>
-            <ul class="item-list">
-              <li>Gitar Akustik & Elektrik</li>
-              <li>Keyboard & Synthesizer</li>
-              <li>Drum & Perkusi</li>
-              <li>Aksesori Musik Lengkap</li>
-              <li>Kabel & Efek Audio</li>
-            </ul>
-          </div>
-          <div class="kategori" data-category="antik">
-            <h4>Barang Antik</h4>
-            <ul class="item-list">
-              <li>Sepeda Unta Antik</li>
-              <li>Jam Dinding Klasik</li>
-              <li>Patung & Dekorasi Kuno</li>
-              <li>Perabotan Antik Langka</li>
-              <li>Koleksi Nostalgia</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Grid Layout dipakai pada .galeri-grid -->
-      <section id="galeri" class="galeri container">
-        <div class="section-head">
-          <h3>Galeri Toko</h3>
-          <div class="galeri-actions">
-            <button id="toggle-galeri" class="btn btn-secondary" type="button" aria-controls="galeri-list" aria-expanded="true">Sembunyikan Galeri</button>
-            <button id="urutkan-galeri" class="btn btn-secondary" type="button" data-sorted="false">Urutkan A-Z</button>
-          </div>
-        </div>
-        <div id="galeri-list" class="galeri-grid">
-          <div class="kotak">Etalase Utama</div>
-          <div class="kotak">Area Kasir</div>
-          <div class="kotak">Area Musik</div>
-          <div class="kotak">Area Pancing</div>
-          <div class="kotak">Area Olahraga</div>
-          <div class="kotak">Koleksi Antik</div>
-          <div class="kotak">Sudut Layanan</div>
-        </div>
-      </section>
-
-      <!-- Tentang Kami Section -->
-      <section id="tentang" class="tentang container">
-        <h3>Tentang Kami</h3>
-        <div class="tentang-content">
-          <p>Toko Tambah Jaya adalah toko yang menyediakan berbagai kebutuhan hobi Anda. Dengan pengalaman lebih dari 25 tahun melayani pelanggan, kami berkomitmen memberikan produk berkualitas dan layanan terbaik.</p>
-          <p>Kami menyediakan peralatan olahraga, perlengkapan pancing, instrumen musik, dan barang antik pilihan dengan harga yang kompetitif.</p>
-        </div>
-      </section>
-
-      <!-- Kontak Section -->
-      <section id="kontak" class="kontak container">
-        <h3>Hubungi Kami</h3>
-        <div class="kontak-content">
-          <div class="kontak-info">
-            <h4>Informasi Kontak</h4>
-            <p><strong>Alamat:</strong> Lasem, Rembang</p>
-            <p><strong>Telepon:</strong> (+62) XXX-XXX-XXXX</p>
-            <p><strong>Email:</strong> info@tokotambahajaya.com</p>
-            <p><strong>Jam Operasional:</strong> Senin - Minggu, 07:00 - 22:00</p>
-            <div class="kontak-actions">
-              <button id="copy-email" class="btn btn-secondary" type="button">Salin Email</button>
-              <button id="copy-phone" class="btn btn-secondary" type="button">Salin Telepon</button>
+      <section id="unggulan" class="featured">
+        <div class="container">
+          <div class="featured-head">
+            <div>
+              <p class="featured-label">KOLEKSI UNGGULAN</p>
+              <h3>PERFORMA PILIHAN</h3>
             </div>
-            <p id="kontak-status" class="kontak-status" aria-live="polite"></p>
+            <a class="featured-link" href="katalog.html">Lihat Semua Katalog <span aria-hidden="true">-></span></a>
+          </div>
+
+          <div class="featured-grid">
+            <article class="featured-card">
+              <div class="featured-image-wrap">
+                <span class="featured-badge">BARU</span>
+                <img
+                  class="featured-image"
+                  src="https://images.unsplash.com/photo-1617083934557-492be6f6ce5f?auto=format&fit=crop&w=900&q=80"
+                  alt="Raket tenis AeroPro Ultra-Lite"
+                />
+              </div>
+              <h4>AeroPro Ultra-Lite 2.0</h4>
+              <p>Raket Profesional Series</p>
+              <strong>Rp 2.499.000</strong>
+            </article>
+
+            <article class="featured-card">
+              <div class="featured-image-wrap">
+                <span class="featured-badge featured-badge-popular">POPULER</span>
+                <img
+                  class="featured-image"
+                  src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
+                  alt="Sepatu lari Velocity X-Run Prime"
+                />
+              </div>
+              <h4>Velocity X-Run Prime</h4>
+              <p>Sepatu Lari Jarak Jauh</p>
+              <strong>Rp 1.850.000</strong>
+            </article>
+
+            <article class="featured-card">
+              <div class="featured-image-wrap">
+                <img
+                  class="featured-image"
+                  src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80"
+                  alt="Sepeda balap Carbon Shift RS-7"
+                />
+              </div>
+              <h4>Carbon Shift RS-7</h4>
+              <p>Komponen Balap Presisi</p>
+              <strong>Rp 4.200.000</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="layanan" class="fitur">
+        <div class="container fitur-inner">
+          <div class="section-head">
+            <div>
+              <p class="fitur-label">LAYANAN KAMI</p>
+              <h3>LEBIH DARI SEKEDAR TOKO</h3>
+            </div>
+            <button
+              id="toggle-layanan"
+              class="btn btn-secondary btn-toggle"
+              type="button"
+              aria-controls="layanan-list"
+              aria-expanded="true"
+            >
+              Sembunyikan Layanan
+            </button>
+          </div>
+          <div id="layanan-list" class="layanan-container">
+            <article class="layanan-kategori">
+              <span class="layanan-icon" aria-hidden="true">🛠️</span>
+              <h4>Penyetelan Alat</h4>
+              <p>Servis raket, sepeda, dan peralatan hobi oleh teknisi bersertifikat kami.</p>
+            </article>
+            <article class="layanan-kategori">
+              <span class="layanan-icon" aria-hidden="true">🏁</span>
+              <h4>Konsultasi Ahli</h4>
+              <p>Dapatkan rekomendasi peralatan yang tepat sesuai postur dan gaya bermain Anda.</p>
+            </article>
+            <article class="layanan-kategori">
+              <span class="layanan-icon" aria-hidden="true">🚚</span>
+              <h4>Pengiriman Aman</h4>
+              <p>Proteksi ekstra untuk pengiriman barang hobi yang sensitif ke seluruh Indonesia.</p>
+            </article>
+            <article class="layanan-kategori">
+              <span class="layanan-icon" aria-hidden="true">✅</span>
+              <h4>Garansi Resmi</h4>
+              <p>Semua produk kami memiliki jaminan keaslian dan garansi purnajual resmi.</p>
+            </article>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <p>Toko Tambah Jaya, Lasem, Rembang</p>
+    <footer class="footer" id="tentang">
+      <div class="container footer-main">
+        <div class="footer-brand">
+          <h4>PERFORMA</h4>
+          <p>
+            PERFORMANCE CURATED. PLATFORM TERDEPAN UNTUK KEBUTUHAN OLAHRAGA DAN HOBI
+            PROFESIONAL DI INDONESIA.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>KATEGORI</h5>
+          <a href="#">SEPAK BOLA</a>
+          <a href="#">BADMINTON</a>
+          <a href="#">FOTOGRAFI</a>
+          <a href="#">E-SPORTS</a>
+        </div>
+
+        <div class="footer-col">
+          <h5>BANTUAN</h5>
+          <a href="#">KEBIJAKAN PRIVASI</a>
+          <a href="#">SYARAT &amp; KETENTUAN</a>
+          <a href="#">BANTUAN</a>
+        </div>
+
+        <div class="footer-col footer-social">
+          <h5>IKUTI KAMI</h5>
+          <div class="social-row">
+            <a href="#" aria-label="Website">O</a>
+            <a href="#" aria-label="Sosial">@</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>&copy; 2024 PERFORMA INDONESIA. PERFORMANCE CURATED.</p>
+        <div class="payment-list">
+          <span>BCA</span>
+          <span>MANDIRI</span>
+          <span>VISA</span>
+          <span>MASTERCARD</span>
+        </div>
+      </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

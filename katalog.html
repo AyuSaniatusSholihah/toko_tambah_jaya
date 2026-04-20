@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katalog Performa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="katalog.css" />
+  </head>
+  <body>
+    <header id="home" class="topbar">
+      <nav class="navbar shell">
+        <h1 class="logo">PERFORMA</h1>
+        <div class="nav-main">
+          <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="katalog.html" class="active">Katalog</a></li>
+            <li><a href="index.html#layanan">Layanan</a></li>
+            <li><a href="#tentang">Tentang Kami</a></li>
+          </ul>
+        </div>
+        <div class="nav-tools" aria-label="Aksi cepat">
+          <button class="tool-btn" type="button" aria-label="Keranjang">🛒</button>
+          <button class="tool-btn" type="button" aria-label="Akun">👤</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="shell katalog-layout">
+      <aside class="sidebar">
+        <p class="sidebar-title">KATEGORI PRODUK</p>
+        <button class="cat-btn is-active" type="button" data-category="all">Semua Produk</button>
+        <button class="cat-btn" type="button" data-category="musik">Alat Musik</button>
+        <button class="cat-btn" type="button" data-category="olahraga">Alat Olahraga</button>
+        <button class="cat-btn" type="button" data-category="pancing">Peralatan Pancing</button>
+        <button class="cat-btn" type="button" data-category="antik">Barang Antik</button>
+        <button class="cat-btn" type="button" data-category="pramuka">Perlengkapan Pramuka</button>
+
+        <div class="promo-card">
+          <p class="promo-kicker">PROMO MINGGU INI</p>
+          <h3>Diskon 25% Alat Musik Tiup</h3>
+          <button type="button">Cek Koleksi</button>
+          <span class="promo-note" aria-hidden="true">♪</span>
+        </div>
+      </aside>
+
+      <section class="catalog-main">
+        <div class="catalog-head">
+          <div>
+            <h2>Katalog Kurasi</h2>
+            <p id="result-summary">Menampilkan 0 produk pilihan untuk performa terbaik Anda.</p>
+          </div>
+          <div class="catalog-tools">
+            <label class="search-wrap" for="search-input">
+              <span aria-hidden="true">⌕</span>
+              <input id="search-input" type="search" placeholder="Cari produk impian..." />
+            </label>
+            <label class="sort-wrap" for="sort-select">
+              <span>URUTKAN:</span>
+              <select id="sort-select">
+                <option value="newest">Terbaru</option>
+                <option value="price-asc">Harga Terendah</option>
+                <option value="price-desc">Harga Tertinggi</option>
+                <option value="name-asc">Nama A-Z</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div id="product-grid" class="product-grid">
+          <article class="product-card" data-category="olahraga" data-name="Sepeda Balap Carbon Pro X2" data-price="12499000" data-new="12">
+            <div class="thumb-wrap">
+              <span class="badge">BARU</span>
+              <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1000&q=80" alt="Sepeda balap carbon" />
+            </div>
+            <p class="type">ALAT OLAHRAGA</p>
+            <h3>Sepeda Balap Carbon Pro X2</h3>
+            <div class="card-foot">
+              <strong>Rp 12.499.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="musik" data-name="Gitar Elektrik Custom Vibe" data-price="4250000" data-new="11">
+            <div class="thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1000&q=80" alt="Gitar elektrik custom" />
+            </div>
+            <p class="type">ALAT MUSIK</p>
+            <h3>Gitar Elektrik Custom Vibe</h3>
+            <div class="card-foot">
+              <strong>Rp 4.250.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="pancing" data-name="Reel Pancing Magnum 5000" data-price="1850000" data-new="10">
+            <div class="thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1000&q=80" alt="Reel pancing" />
+            </div>
+            <p class="type">PERALATAN PANCING</p>
+            <h3>Reel Pancing Magnum 5000</h3>
+            <div class="card-foot">
+              <strong>Rp 1.850.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="olahraga" data-name="SpeedRunner Elite 2024" data-price="2190000" data-new="9">
+            <div class="thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=80" alt="Sepatu lari merah" />
+            </div>
+            <p class="type">ALAT OLAHRAGA</p>
+            <h3>SpeedRunner Elite 2024</h3>
+            <div class="card-foot">
+              <strong>Rp 2.190.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="antik" data-name="Teleskop Brass Maritim 1920" data-price="7450000" data-new="8">
+            <div class="thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1000&q=80" alt="Teleskop antik" />
+            </div>
+            <p class="type">BARANG ANTIK</p>
+            <h3>Teleskop Brass Maritim 1920</h3>
+            <div class="card-foot">
+              <strong>Rp 7.450.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="pramuka" data-name="Tenda Dome Rover Canvas" data-price="1550000" data-new="7">
+            <div class="thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1504280390368-3971fadb2d95?auto=format&fit=crop&w=1000&q=80" alt="Tenda dome" />
+            </div>
+            <p class="type">PERLENGKAPAN PRAMUKA</p>
+            <h3>Tenda Dome Rover Canvas</h3>
+            <div class="card-foot">
+              <strong>Rp 1.550.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="musik" data-name="Saxophone Alto Nova" data-price="5320000" data-new="6">
+            <div class="thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=1000&q=80" alt="Saxophone" />
+            </div>
+            <p class="type">ALAT MUSIK</p>
+            <h3>Saxophone Alto Nova</h3>
+            <div class="card-foot">
+              <strong>Rp 5.320.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="olahraga" data-name="Raket Aero Strike 88" data-price="2690000" data-new="5">
+            <div class="thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=1000&q=80" alt="Raket badminton" />
+            </div>
+            <p class="type">ALAT OLAHRAGA</p>
+            <h3>Raket Aero Strike 88</h3>
+            <div class="card-foot">
+              <strong>Rp 2.690.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="pancing" data-name="Joran Titan Flex 300" data-price="1790000" data-new="4">
+            <div class="thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=80" alt="Joran pancing" />
+            </div>
+            <p class="type">PERALATAN PANCING</p>
+            <h3>Joran Titan Flex 300</h3>
+            <div class="card-foot">
+              <strong>Rp 1.790.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="antik" data-name="Kamera Film Silverline 1965" data-price="3850000" data-new="3">
+            <div class="thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=80" alt="Kamera film antik" />
+            </div>
+            <p class="type">BARANG ANTIK</p>
+            <h3>Kamera Film Silverline 1965</h3>
+            <div class="card-foot">
+              <strong>Rp 3.850.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="pramuka" data-name="Kompas Ranger Pro" data-price="420000" data-new="2">
+            <div class="thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1000&q=80" alt="Kompas" />
+            </div>
+            <p class="type">PERLENGKAPAN PRAMUKA</p>
+            <h3>Kompas Ranger Pro</h3>
+            <div class="card-foot">
+              <strong>Rp 420.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="musik" data-name="Keyboard Stage 61" data-price="6120000" data-new="1">
+            <div class="thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1000&q=80" alt="Keyboard" />
+            </div>
+            <p class="type">ALAT MUSIK</p>
+            <h3>Keyboard Stage 61</h3>
+            <div class="card-foot">
+              <strong>Rp 6.120.000</strong>
+              <button class="detail-btn" type="button">Detail</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+      </section>
+    </main>
+
+    <footer class="footer" id="tentang">
+      <div class="shell footer-main">
+        <div class="footer-brand">
+          <h4>PERFORMA</h4>
+          <p>
+            PERFORMANCE CURATED. PLATFORM TERDEPAN UNTUK KEBUTUHAN OLAHRAGA DAN HOBI
+            PROFESIONAL DI INDONESIA.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>KATEGORI</h5>
+          <a href="#">SEPAK BOLA</a>
+          <a href="#">BADMINTON</a>
+          <a href="#">FOTOGRAFI</a>
+          <a href="#">E-SPORTS</a>
+        </div>
+
+        <div class="footer-col">
+          <h5>BANTUAN</h5>
+          <a href="#">KEBIJAKAN PRIVASI</a>
+          <a href="#">SYARAT &amp; KETENTUAN</a>
+          <a href="#">BANTUAN</a>
+        </div>
+
+        <div class="footer-col footer-social">
+          <h5>IKUTI KAMI</h5>
+          <div class="social-row">
+            <a href="#" aria-label="Website">O</a>
+            <a href="#" aria-label="Sosial">@</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell footer-bottom">
+        <p>&copy; 2024 PERFORMA INDONESIA. PERFORMANCE CURATED.</p>
+        <div class="payment-list">
+          <span>BCA</span>
+          <span>MANDIRI</span>
+          <span>VISA</span>
+          <span>MASTERCARD</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      if (typeof window.jQuery !== "undefined") {
+        $(function () {
+          var $cards = $(".product-card");
+          var $grid = $("#product-grid");
+          var $search = $("#search-input");
+          var $sort = $("#sort-select");
+          var $catButtons = $(".cat-btn");
+          var $summary = $("#result-summary");
+          var $pagination = $("#pagination");
+          var perPage = 6;
+          var currentPage = 1;
+          var currentCategory = "all";
+
+          function rupiah(number) {
+            return new Intl.NumberFormat("id-ID").format(number);
+          }
+
+          function getFilteredCards() {
+            var keyword = $search.val().trim().toLowerCase();
+            return $cards.filter(function () {
+              var $card = $(this);
+              var categoryMatch =
+                currentCategory === "all" || $card.data("category") === currentCategory;
+              var name = String($card.data("name")).toLowerCase();
+              return categoryMatch && name.indexOf(keyword) !== -1;
+            });
+          }
+
+          function sortCards($collection) {
+            var sortValue = $sort.val();
+            var sorted = $collection.get().sort(function (a, b) {
+              var $a = $(a);
+              var $b = $(b);
+
+              if (sortValue === "price-asc") {
+                return Number($a.data("price")) - Number($b.data("price"));
+              }
+              if (sortValue === "price-desc") {
+                return Number($b.data("price")) - Number($a.data("price"));
+              }
+              if (sortValue === "name-asc") {
+                return String($a.data("name")).localeCompare(String($b.data("name")), "id");
+              }
+              return Number($b.data("new")) - Number($a.data("new"));
+            });
+
+            return $(sorted);
+          }
+
+          function renderPagination(totalItems) {
+            var totalPages = Math.max(1, Math.ceil(totalItems / perPage));
+            if (currentPage > totalPages) {
+              currentPage = totalPages;
+            }
+
+            $pagination.empty();
+
+            var $prev = $('<button type="button" class="page-btn">‹</button>');
+            $prev.prop("disabled", currentPage === 1);
+            $prev.on("click", function () {
+              if (currentPage > 1) {
+                currentPage -= 1;
+                render();
+              }
+            });
+            $pagination.append($prev);
+
+            for (var i = 1; i <= totalPages; i += 1) {
+              var $pageBtn = $('<button type="button" class="page-btn"></button>').text(i);
+              if (i === currentPage) {
+                $pageBtn.addClass("is-active");
+              }
+              (function (pageNumber) {
+                $pageBtn.on("click", function () {
+                  currentPage = pageNumber;
+                  render();
+                });
+              })(i);
+              $pagination.append($pageBtn);
+            }
+
+            var $next = $('<button type="button" class="page-btn">›</button>');
+            $next.prop("disabled", currentPage === totalPages);
+            $next.on("click", function () {
+              if (currentPage < totalPages) {
+                currentPage += 1;
+                render();
+              }
+            });
+            $pagination.append($next);
+          }
+
+          function render() {
+            var filtered = sortCards(getFilteredCards());
+            var total = filtered.length;
+            var start = (currentPage - 1) * perPage;
+            var end = start + perPage;
+
+            $cards.hide();
+            filtered.slice(start, end).each(function () {
+              $(this).fadeIn(160);
+            });
+
+            $summary.text(
+              "Menampilkan " + total + " produk pilihan untuk performa terbaik Anda."
+            );
+
+            renderPagination(total);
+          }
+
+          $catButtons.on("click", function () {
+            currentCategory = $(this).data("category");
+            currentPage = 1;
+            $catButtons.removeClass("is-active");
+            $(this).addClass("is-active");
+            render();
+          });
+
+          $search.on("input", function () {
+            currentPage = 1;
+            render();
+          });
+
+          $sort.on("change", function () {
+            currentPage = 1;
+            render();
+          });
+
+          $(".detail-btn").on("click", function () {
+            var title = $(this).closest(".product-card").data("name");
+            alert("Detail produk: " + title);
+          });
+
+          render();
+
+          $(".promo-card button").on("click", function () {
+            currentCategory = "musik";
+            currentPage = 1;
+            $catButtons.removeClass("is-active");
+            $('.cat-btn[data-category="musik"]').addClass("is-active");
+            render();
+            $("html, body").animate({ scrollTop: $grid.offset().top - 90 }, 280);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
