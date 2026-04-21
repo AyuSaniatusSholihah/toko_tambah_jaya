@@ -252,7 +252,19 @@ body {
 .catalog-head p {
   margin: 0.12rem 0 0;
   font-size: 0.78rem;
+  line-height: 1.45;
+  word-spacing: 0.05em;
   color: #38475e;
+}
+
+#result-summary .summary-count {
+  display: inline-block;
+  margin: 0 0.22em;
+  font-weight: 600;
+}
+
+#result-summary .no-break {
+  white-space: nowrap;
 }
 
 .sort-wrap {
