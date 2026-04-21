@@ -192,10 +192,13 @@
       </div>
     </footer>
 
+    <!-- (1) Memuat jQuery dari CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
       if (typeof window.jQuery !== "undefined") {
+        // (1) Document Ready: jalankan script saat DOM sudah siap.
         $(function () {
+          // (2) Selector: simpan elemen ke variabel jQuery agar mudah dipakai ulang.
           var $links = $(".menu a, .btn[href^='#']");
           var $layananToggle = $("#toggle-layanan");
           var $layananList = $("#layanan-list");
@@ -209,11 +212,15 @@
           var $copyPhone = $("#copy-phone");
           var $kontakStatus = $("#kontak-status");
 
+          // (8) .each(): iterasi item galeri untuk menyimpan urutan asli.
           $galeriItems.each(function (index) {
+            // (5) .attr(): set atribut data-original-index.
             $(this).attr("data-original-index", index);
           });
 
+          // (3) Event handling: .on("click", ...)
           $links.on("click", function (event) {
+            // (5) .attr(): baca href target.
             var targetId = $(this).attr("href");
             if (!targetId || targetId.charAt(0) !== "#") return;
 
@@ -225,6 +232,7 @@
             var navHeight = $(".navbar").outerHeight() || 0;
             var destination = $target.offset().top - navHeight - 12;
 
+            // (10) Animasi scroll menggunakan .animate({ scrollTop: ... }).
             $("html, body").animate(
               {
                 scrollTop: Math.max(destination, 0),
@@ -232,6 +240,7 @@
               500
             );
 
+            // (6) Kelola class aktif menu.
             $(".menu a").removeClass("active");
             $('.menu a[href="' + targetId + '"]').addClass("active");
           });
@@ -239,10 +248,13 @@
           $layananToggle.on("click", function () {
             var isVisible = $layananList.is(":visible");
 
+            // (4) Efek slide dengan .slideToggle().
             $layananList.stop(true, true).slideToggle(280);
             $(this)
+              // (5) Ubah atribut + teks tombol secara dinamis.
               .attr("aria-expanded", String(!isVisible))
               .text(isVisible ? "Tampilkan Layanan" : "Sembunyikan Layanan")
+              // (6) Toggle class status aktif.
               .toggleClass("is-active", !isVisible);
           });
 
@@ -253,6 +265,7 @@
               .stop(true, true)
               .css("opacity", 0)
               .slideDown(240)
+              // (9) Efek animasi: contoh .animate() untuk transisi opacity.
               .animate(
                 {
                   opacity: 1
@@ -277,21 +290,26 @@
               );
           }
 
+          // (3) Event klik filter kategori.
           $filterButtons.on("click", function () {
+            // (7) Membaca data-* via .data().
             var filter = $(this).data("filter");
 
             $filterButtons.removeClass("is-active");
             $(this).addClass("is-active");
 
             if (filter === "all") {
+              // (8) .each(): loop semua kartu untuk ditampilkan.
               $produkCards.each(function () {
                 showCard($(this));
               });
               return;
             }
 
+            // (8) .each(): loop + cek kategori setiap kartu.
             $produkCards.each(function () {
               var $card = $(this);
+              // (7) .data(): ambil kategori dari data-category.
               var category = $card.data("category");
               if (category === filter) {
                 showCard($card);
@@ -312,9 +330,11 @@
           $sortGaleri.on("click", function () {
             if (!$galeriItems.length) return;
 
+            // (5) .attr(): baca status urutan saat ini.
             var isSorted = $(this).attr("data-sorted") === "true";
             var $items = $galeriList.children(".kotak").get();
 
+            // (13) Sorting dinamis: urutkan elemen galeri di DOM.
             $items.sort(function (a, b) {
               var aText = $(a).text().trim();
               var bText = $(b).text().trim();
@@ -326,7 +346,9 @@
               return aText.localeCompare(bText, "id");
             });
 
+            // (8) $.each(): append ulang item sesuai urutan baru.
             $.each($items, function (_, item) {
+              // (11) .append(): menyusun ulang elemen di dalam container.
               $galeriList.append(item);
             });
 
@@ -338,6 +360,7 @@
           function copyText(text, label) {
             if (navigator.clipboard && window.isSecureContext) {
               navigator.clipboard.writeText(text).then(function () {
+                // (5) .text(): update status sukses.
                 $kontakStatus.text(label + " berhasil disalin.");
               }).catch(function () {
                 $kontakStatus.text("Gagal menyalin " + label.toLowerCase() + ".");
@@ -345,6 +368,7 @@
               return;
             }
 
+            // (11) Buat elemen baru lalu tambahkan sementara ke body.
             var $tempInput = $("<input>");
             $("body").append($tempInput);
             $tempInput.val(text).trigger("select");
@@ -368,6 +392,7 @@
           });
 
           function revealOnScroll() {
+            // (12) Scroll reveal: deteksi posisi section terhadap viewport.
             var triggerBottom = $(window).scrollTop() + $(window).height() * 0.9;
             $("main section").each(function () {
               var $section = $(this);
