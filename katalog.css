@@ -52,7 +52,7 @@ body {
   align-items: center;
   gap: 1rem;
   padding: 0.9rem clamp(1rem, 3vw, 2.3rem);
-  margin-top: 10px;
+  margin-top: 0;
   background: #ffffff;
   border: 1px solid rgba(17, 24, 39, 0.12);
   border-radius: 14px;

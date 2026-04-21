@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  --top-gap-cut: 20px;
+  --top-gap-cut: 0px;
   margin: 0;
   font-family: "Sora", sans-serif;
   color: #e5edf8;
@@ -74,21 +74,9 @@ body::before {
   position: absolute;
   inset: 0;
   background:
-    repeating-linear-gradient(
-      125deg,
-      rgba(255, 255, 255, 0.06) 0,
-      rgba(255, 255, 255, 0.06) 2px,
-      transparent 2px,
-      transparent 12px
-    ),
-    repeating-linear-gradient(
-      -125deg,
-      rgba(255, 255, 255, 0.025) 0,
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 2px,
-      transparent 12px
-    ),
-    linear-gradient(110deg, rgba(10, 20, 34, 0.92) 15%, rgba(3, 8, 14, 0.8) 70%);
+    linear-gradient(110deg, rgba(7, 17, 32, 0.72) 15%, rgba(3, 8, 14, 0.6) 70%),
+    url("https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1800&q=80") center / cover
+      no-repeat;
   pointer-events: none;
 }
 
@@ -99,16 +87,17 @@ body::before {
   gap: 1rem;
   padding: 0.9rem clamp(1rem, 3vw, 2.3rem);
   position: fixed;
-  
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: min(1130px, 92%);
   z-index: 40;
   background: #ffffff;
   border: 1px solid rgba(17, 24, 39, 0.12);
   border-radius: 14px;
   box-shadow: 0 10px 26px rgba(9, 18, 32, 0.14);
-  backdrop-filter: none;
+  backdrop-filter: blur(4px);
 }
 
 .logo {
@@ -135,7 +124,7 @@ body::before {
 }
 
 .menu a {
-  color: #386fb8;
+  color: #3c4a5c;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.92rem;
